@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: Faculty Post Type
+ * Plugin Name: Fullerton Faculty Cards
  * Description: A custom plugin that creates the "Faculty" post type for displaying Fullerton College Faculty and Staff using a form.
  * Version: 1.0
  * Author: Brain Jar
@@ -32,7 +32,7 @@ function create_faculty_post_type() {
         'has_archive' => true,
         'menu_icon' => 'dashicons-groups',
         'supports' => array( 'title', 'editor' ),
-        'show_in_rest' => true,
+        'show_in_rest' => true, // Inclue this post Type in the REST API (make available to the block editor)
     );
 
     register_post_type( 'faculty', $args );
@@ -56,10 +56,10 @@ function add_faculty_meta_boxes() {
 
 add_action( 'add_meta_boxes', 'add_faculty_meta_boxes' );
 
-// Output the meta fields (display to the User)
+// Output/Display Meta fields to the user
 function display_faculty_meta_box( $post ) {
 
-    // Retrieve the current values for these custom fields
+    // Get the current values for these custom fields
     $name = get_post_meta( $post->ID, 'faculty_name', true );
     $photo_url = get_post_meta( $post->ID, 'faculty_photo_url', true );
     $email = get_post_meta( $post->ID, 'faculty_email', true );
@@ -101,9 +101,9 @@ function display_faculty_meta_box( $post ) {
     <?php
 }
 
-// Update the Meta Form fields
+// Save the custom field data by key when the post is saved
 function save_faculty_meta_data( $post_id ) {
-    // Save the custom field data by key when the post is saved
+    // If this field was submitted, update the meta field
     if ( isset( $_POST['faculty_name'] ) ) {
         $name = sanitize_text_field( $_POST['faculty_name'] );
         update_post_meta( $post_id, 'faculty_name', $name);
@@ -142,12 +142,12 @@ function save_faculty_meta_data( $post_id ) {
 
 add_action( 'save_post_faculty', 'save_faculty_meta_data' );
 
-// Update the Post's content
+// Save the updated Post's content conditionally
 function update_faculty_post_content( $post_id ) {
-    // Template Start
+    // Content Template Start
     $post_content = "<div class='fc-container'>";
 
-    // Conditionally update the template by user input
+    // If the field was submitted AND the input is not empty, update the template by user input
     if ( isset( $_POST['faculty_name'] ) && (sanitize_text_field( $_POST['faculty_name'] ) !== "") ) {
         $post_content .= "<div class='fc-header'><div class='fc-header-title'><h4 class='fc-ht-el'>" . sanitize_text_field( $_POST['faculty_name'] ) . "</h4></div></div><div class='fc-content'>";
     }
@@ -176,7 +176,7 @@ function update_faculty_post_content( $post_id ) {
         $post_content .= "<p><a class='fc-link' href=" . sanitize_text_field( $_POST['faculty_linkedIn_url'] ) . ">LinkedIn Profile</a></p>";
     }
 
-    // Template End
+    // Content Template End
     $post_content .= "</div>";
     
     $post_data = array(

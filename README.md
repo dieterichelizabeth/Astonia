@@ -1,8 +1,6 @@
 # Astonia 🌱
 
-## Description
-
-A plugin that creates a custom "Faculty" Post Type for displaying College Faculty and Staff using a form. Used with Divi Themes blog module and Post Types Order plugin!
+A plugin that creates a custom "Faculty" Post Type for displaying College Faculty and Staff using a form. Uses Divi Themes blog module and Post Types Order plugin!
 
 ## Screenshots
 
@@ -10,22 +8,18 @@ A plugin that creates a custom "Faculty" Post Type for displaying College Facult
 
 ## How it works
 
-This Plugin creates a custom post type for Wordpress and gathers data based on custom meta fields. These fields appear as a form labled "Faculty Information" when a user edits, or creates a new Faculty post.
+This Plugin creates a custom post type for Wordpress and gathers data based on custom meta fields. These fields appear as a form labled "Faculty Information" when a user edits, or creates a new Faculty post. The data from the Meta fields form input are written to a template when the user "saves" or "updates" a post. The Divi Theme displays these post templates in a Grid form to make "cards".
 
-The data from the Meta fields are written to a template when the user "saves" or "updates" a post.
-
-The Divi Theme displays these post templates in a Grid form to make "cards".
-
-## Installation
+## Installation 🛠️
 
 For local development see `notes/installation.md`
 
 ## Technologies used
 
-<img src="https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white">
+<span><img src="https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white">
 <img src="https://img.shields.io/badge/Wordpress-21759B?style=for-the-badge&logo=wordpress&logoColor=white">
 <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white">
-<img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white">
+<img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white"></span>
 
 ## Reading List 📚
 

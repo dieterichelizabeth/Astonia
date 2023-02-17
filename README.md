@@ -10,6 +10,8 @@ A plugin that creates a custom "Faculty" Post Type for displaying College Facult
 
 ## Installation
 
+For local development see `notes/installation.md`
+
 ## Technologies used
 
 ## Reading List 📚

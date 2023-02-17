@@ -1,0 +1,110 @@
+/* Styles to Faculty Cards */
+.fc-container {
+  width: 100%;
+  margin-bottom: 30px;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  float: left;
+  position: relative;
+  z-index: 2;
+  min-height: 1px;
+  vertical-align: baseline;
+  background: transparent;
+  color: #666;
+  line-height: 1.7em;
+  font-weight: 500;
+  border: 1px solid #919090c3;
+  padding-top: 0px;
+}
+
+.fc-header {
+  margin-top: 0px;
+  margin-bottom: 30px;
+  text-align: left;
+  border-color: #9b9b9b #9b9b9b #f1f1f1 #9b9b9b;
+  padding-bottom: 0px !important;
+  position: relative;
+  border: 0 solid #333;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+.fc-header-title {
+  font-size: 18px;
+  font-family: "Arial", Helvetica, Arial, Lucida, sans-serif;
+  color: #0f406b;
+  line-height: 1em;
+  background-color: #f1f1f1;
+  border-color: #9b9b9b #9b9b9b #f1f1f1 #9b9b9b;
+  padding-top: 8px !important;
+  margin-block-start: 0px;
+  margin-block-end: 0px;
+  padding-left: 10px !important;
+  position: relative;
+  border: 0 solid #333;
+  letter-spacing: 0.4px;
+}
+
+.fc-ht-el {
+  margin-block-start: 0px !important;
+  margin-block-end: 0px !important;
+  font-weight: 100 !important ;
+}
+
+p {
+  margin-block-start: 0px !important;
+  margin-block-end: 0px !important;
+}
+
+.fc-content {
+  margin-bottom: 0;
+  line-height: 1em;
+  border-width: 1px;
+  border-color: #f1f1f1 #9b9b9b #9b9b9b #9b9b9b;
+  height: 300px;
+  padding-top: 10px !important;
+  margin-top: -30px !important;
+  box-shadow: -7px 10px 22px 2px rgb(0 0 0 / 30%);
+  word-wrap: break-word;
+  position: relative;
+  border: 0 solid #333;
+  background-size: cover;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  color: #666;
+  font-weight: 500;
+  text-align: center;
+}
+
+.fc-img {
+  border: 1px solid #eaeaea;
+  border-radius: 8px;
+  max-height: 120px;
+}
+
+.fc-program {
+  font-family: "Arial", Helvetica, Arial, Lucida, sans-serif;
+  font-size: 14px;
+  line-height: 1em;
+  font-weight: 500;
+}
+
+.fc-text {
+  font-size: 14px;
+  font-weight: 100 !important;
+}
+
+.fc-link {
+  color: #0f406b;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.4px;
+  font-family: "Arial", Helvetica, Arial, Lucida, sans-serif;
+}
+
+.faculty .entry-title {
+  display: none;
+}

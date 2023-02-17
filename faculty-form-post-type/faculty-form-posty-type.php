@@ -3,6 +3,7 @@
  * Plugin Name: Faculty Post Type
  * Description: A custom plugin that creates the "Faculty" post type for displaying Fullerton College Faculty and Staff using a form.
  * Version: 1.0
+ * Author: Brain Jar
  * License: GPL2
  */
 
@@ -36,19 +37,20 @@ function create_faculty_post_type() {
 
     register_post_type( 'faculty', $args );
 }
-  
+
+// Hooking up our function to theme setup   
 add_action( 'init', 'create_faculty_post_type' );
 
-// Add the Meta Form fields
+// Add Meta Form fields
 function add_faculty_meta_boxes() {
-    // Create the Meta Box
+    // Create Meta Box
     add_meta_box(
-        'faculty_info', // ID
+        'faculty_info', // Unique ID
         'Faculty Information', 
         'display_faculty_meta_box', // Content callback
         'faculty', // Post type
         'normal', 
-        'high'
+        'high' 
     );
 }
 
@@ -101,86 +103,92 @@ function display_faculty_meta_box( $post ) {
 
 // Update the Meta Form fields
 function save_faculty_meta_data( $post_id ) {
-
-    // Get values from the Form input
-    $name = sanitize_text_field( $_POST['faculty_name'] );
-    $photo_url = sanitize_text_field( $_POST['faculty_photo_url'] );
-    $email = sanitize_email( $_POST['faculty_email'] );
-    $phone_number = sanitize_text_field( $_POST['faculty_phone_number'] );
-    $program_name = sanitize_text_field( $_POST['faculty_program_name'] );
-    $office = sanitize_text_field( $_POST['faculty_office'] );
-    $linkedIn = sanitize_text_field( $_POST['faculty_linkedIn_url'] );
-
     // Save the custom field data by key when the post is saved
     if ( isset( $_POST['faculty_name'] ) ) {
+        $name = sanitize_text_field( $_POST['faculty_name'] );
         update_post_meta( $post_id, 'faculty_name', $name);
     }
 
     if ( isset( $_POST['faculty_photo_url'] ) ) {
+        $photo_url = sanitize_text_field( $_POST['faculty_photo_url'] );
         update_post_meta( $post_id, 'faculty_photo_url', $photo_url );
     }
 
     if ( isset( $_POST['faculty_email'] ) ) {
+        $email = sanitize_email( $_POST['faculty_email'] );
         update_post_meta( $post_id, 'faculty_email', $email );
     }
 
     if ( isset( $_POST['faculty_phone_number'] ) ) {
+        $phone_number = sanitize_text_field( $_POST['faculty_phone_number'] );
         update_post_meta( $post_id, 'faculty_phone_number', $phone_number );
     }
 
     if ( isset( $_POST['faculty_program_name'] ) ) {
+        $program_name = sanitize_text_field( $_POST['faculty_program_name'] );
         update_post_meta( $post_id, 'faculty_program_name', $program_name );
     }
 
     if ( isset( $_POST['faculty_office'] ) ) {
+        $office = sanitize_text_field( $_POST['faculty_office'] );
         update_post_meta( $post_id, 'faculty_office', $office );
     }
 
     if ( isset( $_POST['faculty_linkedIn_url'] ) ) {
+        $linkedIn = sanitize_text_field( $_POST['faculty_linkedIn_url'] );
         update_post_meta( $post_id, 'faculty_linkedIn_url', $linkedIn );
     }
-
-    update_faculty_post_content($post_id, $name, $photo_url, $email, $phone_number, $program_name, $office, $linkedIn);
 }
 
-// Update the Post's content
-function update_faculty_post_content( $post_id, $name, $photo_url, $email, $phone_number, $program_name, $office, $linkedIn ) {
+add_action( 'save_post_faculty', 'save_faculty_meta_data' );
 
-    $post_content = "<div class='fc-container'><div class='fc-header'><div class='fc-header-title'><h4 class='fc-ht-el'>" . $name . "</h4></div></div><div class='fc-content'>";
+// Update the Post's content
+function update_faculty_post_content( $post_id ) {
+    // Template Start
+    $post_content = "<div class='fc-container'>";
 
     // Conditionally update the template by user input
-    if ( $photo_url ) {
-        $post_content .= "<p><img class='fc-img' src=" . $photo_url . "></p>";
+    if ( isset( $_POST['faculty_name'] ) && (sanitize_text_field( $_POST['faculty_name'] ) !== "") ) {
+        $post_content .= "<div class='fc-header'><div class='fc-header-title'><h4 class='fc-ht-el'>" . sanitize_text_field( $_POST['faculty_name'] ) . "</h4></div></div><div class='fc-content'>";
     }
 
-    if ( $program_name ) {
-        $post_content .= "<p class='fc-program'><b>" . $program_name . "</b></p>";
+    if ( isset( $_POST['faculty_photo_url']) && (sanitize_text_field( $_POST['faculty_photo_url'] ) !== "") ) {
+        $post_content .= "<p><img class='fc-img' src=" . sanitize_text_field( $_POST['faculty_photo_url'] ) . "></p>";
     }
 
-    if ( $office ) {
-        $post_content .= "<p class='fc-text'>Office: ". $office . "</p>";
+    if ( isset( $_POST['faculty_program_name'] ) && (sanitize_text_field( $_POST['faculty_program_name'] ) !== "") ) {
+        $post_content .= "<p class='fc-program'><b>" . sanitize_text_field( $_POST['faculty_program_name'] ) . "</b></p>";
     }
 
-    if ( $phone_number ) {
-        $post_content .= "<p class='fc-text'>" . $phone_number . "</p>";
+    if ( isset( $_POST['faculty_office'] ) && (sanitize_text_field( $_POST['faculty_office'] ) !== "") ) {
+        $post_content .= "<p class='fc-text'>Office: ". sanitize_text_field( $_POST['faculty_office'] ) . "</p>";
     }
 
-    if ( $email ) {
-        $post_content .= "<p><a class='fc-link' href=mailto:" . $email . ">" . $email . "</a></p>";
+    if ( isset( $_POST['faculty_phone_number'] ) && (sanitize_text_field( $_POST['faculty_phone_number'] ) !== "") ) {
+        $post_content .= "<p class='fc-text'>" . sanitize_text_field( $_POST['faculty_phone_number'] ) . "</p>";
+    }
+
+    if ( isset( $_POST['faculty_email'] ) && (sanitize_text_field( $_POST['faculty_email'] ) !== "") ) {
+        $post_content .= "<p><a class='fc-link' href=mailto:" . sanitize_text_field( $_POST['faculty_email'] ) . ">" . sanitize_text_field( $_POST['faculty_email'] ) . "</a></p>";
     }
     
-    if ( $linkedIn ) {
-        $post_content .= "<p><a class='fc-link' href=" . $linkedIn . ">LinkedIn Profile</a></p>";
+    if ( isset( $_POST['faculty_linkedIn_url'] ) && (sanitize_text_field( $_POST['faculty_linkedIn_url'] ) !== "") ) {
+        $post_content .= "<p><a class='fc-link' href=" . sanitize_text_field( $_POST['faculty_linkedIn_url'] ) . ">LinkedIn Profile</a></p>";
     }
 
+    // Template End
     $post_content .= "</div>";
     
     $post_data = array(
         'ID' => $post_id,
         'post_content' => $post_content
     );
+
+    // Stop that infinate loop :)
+    remove_action( 'save_post_faculty', 'update_faculty_post_content', 20 );
     wp_update_post( $post_data );
+    add_action( 'save_post_faculty', 'update_faculty_post_content', 20 );
+
 }
 
-add_action( 'save_post_faculty', 'save_faculty_meta_data' );
-
+add_action( 'save_post_faculty', 'update_faculty_post_content', 20 );

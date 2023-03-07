@@ -6,7 +6,7 @@ This Plugin creates a custom post type for Wordpress and gathers data based on c
 
 # Local Wordpress Installation 🌻
 
-- [MAMP Installation steps](https://www.wpbeginner.com/wp-tutorials/how-to-install-wordpress-locally-on-mac-using-mamp/)
+- For Mac, follow the installation steps from: [MAMP Installation steps](https://www.wpbeginner.com/wp-tutorials/how-to-install-wordpress-locally-on-mac-using-mamp/)
 - [MAMP Download link](https://www.mamp.info/en/downloads/)
 - [Download Wordpress for local envrionment](https://wordpress.org/download/)
 
@@ -16,7 +16,21 @@ This Plugin creates a custom post type for Wordpress and gathers data based on c
 
 1. Add the `Fullerton Faculty Cards` Plugin and Activate it
 
-2. From the Dashboard, add the following CSS code to Appearance --> Customize --> "Additional CSS"
+2. Add the `Post Types Order` Plugin, activate, and configure:
+
+- From the Dashboard, go to Settings Page make the configuration:
+  - "Hide" re-order interface for all posts other than "Faculty".
+  - "Show" re-order interface for the "Faculty" post type
+  - Minimum level to use this plugin - "Editor"
+  - Save Settings
+
+When it's done, this should look something like -
+
+![Screenshot 2023-02-21 at 3 07 48 PM](https://user-images.githubusercontent.com/95142863/220458851-cddc7afe-84e4-49a7-9aca-5af54bc2f7e5.png)
+
+3. Activate the `Divi theme` (if not already activated)
+
+4. From the Dashboard, add the following CSS code to Appearance --> Customize --> "Additional CSS"
 
 ```
 /* Styles to Faculty Cards */
@@ -130,20 +144,6 @@ p {
   display: none;
 }
 ```
-
-3. Add the `Post Types Order` Plugin, activate, and configure:
-
-- From the Dashboard, go to Settings Page make the configuration:
-  - "Hide" re-order interface for all posts other than "Faculty".
-  - "Show" re-order interface for the "Faculty" post type
-  - Minimum level to use this plugin - "Editor"
-  - Save Settings
-
-When it's done, this should look something like -
-
-![Screenshot 2023-02-21 at 3 07 48 PM](https://user-images.githubusercontent.com/95142863/220458851-cddc7afe-84e4-49a7-9aca-5af54bc2f7e5.png)
-
-4. Activate the `Divi theme` (if not already activated)
 
 ## Steps to create your Faculty Cards 🛠️
 

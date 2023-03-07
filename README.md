@@ -6,6 +6,12 @@ This Plugin creates a custom post type for Wordpress and gathers data based on c
 
 # Local Wordpress Installation
 
+- [MAMP Installation steps](https://www.wpbeginner.com/wp-tutorials/how-to-install-wordpress-locally-on-mac-using-mamp/)
+- [MAMP Download link](https://www.mamp.info/en/downloads/)
+- [Download Wordpress for local envrionment](https://wordpress.org/download/)
+
+# Local Wordpress Setup
+
 ## Steps to Setup the Plugin/Other tools 🛠️
 
 1. Add the `Fullerton Faculty Cards` Plugin and Activate it

@@ -4,13 +4,13 @@ A plugin that creates a custom "Faculty" Post Type for displaying College Facult
 
 This Plugin creates a custom post type for Wordpress and gathers data based on custom meta fields. These fields appear as a form labled "Faculty Information" when a user edits, or creates a new Faculty post. The data from the Meta fields form input are written to a HTML template (saved as a string and updated to the post content) when the user "saves" or "updates" a post. The Divi Theme displays these post templates in a Grid form to make "cards".
 
-# Local Wordpress Installation
+# Local Wordpress Installation 🌻
 
 - [MAMP Installation steps](https://www.wpbeginner.com/wp-tutorials/how-to-install-wordpress-locally-on-mac-using-mamp/)
 - [MAMP Download link](https://www.mamp.info/en/downloads/)
 - [Download Wordpress for local envrionment](https://wordpress.org/download/)
 
-# Local Wordpress Setup
+# Local Wordpress Setup 🌻
 
 ## Steps to Setup the Plugin/Other tools 🛠️
 
